@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    button{
+        @apply font-semibold text-xl text-white bg-indigo-400 rounded-md px-3 py-1 hover:bg-indigo-500
+    }
+    input[type="text"] {
+        @apply border-2 outline-none border-blue-400 px-2 py-1 focus:border-blue-800 rounded-md;
+    }
+}
