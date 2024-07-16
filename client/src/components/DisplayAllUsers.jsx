@@ -14,7 +14,7 @@ return (
             <th className="font-medium pt-2 pb-3">Actions</th>
             </tr>
         </thead>
-        {userList.length===0?<tbody className="text-center text-3xl font-medium my-12"><tr><td>No users present!!!</td></tr></tbody>:<tbody className="text-lg font-medium">
+        {userList.length===0?<div className="text-center text-3xl font-medium my-12 w-full">No users present!!!</div>:<tbody className="text-lg font-medium">
         {userList.map((elem,index)=>{
             const {_id,fname,lname,age,gender,status}=elem;
             return <tr key={_id} className={index%2===0?'bg-indigo-200':'bg-indigo-300'}>

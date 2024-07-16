@@ -9,7 +9,7 @@ const SeeUser = () => {
 
     const FetchData= async()=>{
         try{
-            const {data}=await axios.get(`http://localhost:5000/user/getone/${userId}`);
+            const {data}=await axios.get(import.meta.env.VITE_BACKEND_URL+`/user/getone/${userId}`);
             setUserData(data);
             console.log(userData);
         }

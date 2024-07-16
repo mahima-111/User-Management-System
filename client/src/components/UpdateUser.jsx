@@ -26,7 +26,7 @@ const UpdateUser = () => {
     const submitHandler=async (e)=>{
         e.preventDefault();
         try{
-            await axios.put(`http://localhost:5000/user/update/${userId}`,userData);
+            await axios.put(import.meta.env.VITE_BACKEND_URL+`/user/update/${userId}`,userData);
             toast.success('User updated successfully');
             navigate('/');
         }

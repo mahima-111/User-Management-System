@@ -7,8 +7,10 @@ const cors=require('cors');
 
 const userRouter=require('./routes/userRoutes');
 const conditionRouter=require('./routes/conditionRoutes');
-
-app.use(cors());
+const corsOptions={
+    origin: ['http://localhost:5173',]
+}
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use('/user',userRouter);
 app.use('/condition',conditionRouter);

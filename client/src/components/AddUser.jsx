@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios";
 import { IoArrowBack } from "react-icons/io5";
 import toast, { Toaster } from 'react-hot-toast';
@@ -13,22 +13,20 @@ const AddUser = () => {
         status:'inactive'
     });
 
+    const navigate=useNavigate();
+
     const submitHandler=async (e)=>{
         e.preventDefault();
-        // console.log(userObj);
         try{
-            await axios.post('http://localhost:5000/user/create',userObj);
+            await axios.post(import.meta.env.VITE_BACKEND_URL+'/user/create',userObj);
             toast.success('User added successfully'); 
-            // e.target.reset();
+            navigate('/');
         }
         catch(err){
             console.log(err);
             toast.error(`Error in adding user : ${err}`); 
         }
     }
-    // const resetForm = () => { 
-    //     document.getElementById("user-add-form").reset();
-    // }
     const inputHandler=(e)=>{
         const {value,name}=e.target;
         setUserObj({...userObj,[name]:value});

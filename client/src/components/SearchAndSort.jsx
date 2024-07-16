@@ -26,7 +26,7 @@ const SearchAndSort = ({setUserList}) => {
     }
     const fetchData= async(searchText)=>{
         try{
-            const {data}=await axios.get(`http://localhost:5000/condition?search=${searchText}&gender=${genderButton}&status=${statusButton}&sort=${sortButton}`);
+            const {data}=await axios.get(import.meta.env.VITE_BACKEND_URL+`/condition?search=${searchText}&gender=${genderButton}&status=${statusButton}&sort=${sortButton}`);
             setUserList(data);
         }
         catch(err){
@@ -76,15 +76,6 @@ const SearchAndSort = ({setUserList}) => {
                 <option value='ageDesc'>Age (desc)</option>
             </select>
         </div>
-
-        {/* <div className='flex flex-col'>
-            <label htmlFor='sortAge' className='font-medium text-xl' >Sort (Age)</label>
-            <select id='sortAge' name='sortAge' className='text-lg'>
-                <option value='default'>Default</option>
-                <option value='ascending'>Ascending</option>
-                <option value='descending'>Descending</option>
-            </select>
-        </div> */}
 
         <div className='flex flex-col'>
             <h3 className='font-medium text-xl'>Filter by Status</h3>

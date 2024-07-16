@@ -9,7 +9,7 @@ const GetAllUsers = () => {
     const [loading,setLoading]=useState(true);
     const fetchData=async ()=>{
         try{
-            const {data}= await axios.get('http://localhost:5000/user/getall')
+            const {data}= await axios.get(import.meta.env.VITE_BACKEND_URL+'/user/getall')
             setUserList(data);
             setLoading(false);
         }

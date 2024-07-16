@@ -8,7 +8,7 @@ const ActionButtons = ({ uniqId,setUserList }) => {
 
     const deleteUser = async () => {
         try {
-            await axios.delete(`http://localhost:5000/user/delete/${uniqId}`);
+            await axios.delete(import.meta.env.VITE_BACKEND_URL+`/user/delete/${uniqId}`);
             setUserList(prev=>prev.filter((elem)=>elem._id!==uniqId));
             toast.success('User deleted successfully');  
         }
