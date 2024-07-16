@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
-const URL='mongodb://127.0.0.1:27017/crudApp'
+require('dotenv').config();
 
-mongoose.connect(URL);
+mongoose.connect(process.env.MONGO_URL);
 const db=mongoose.connection;
 db.on('connected',()=>{
     console.log("mongo db connected");
